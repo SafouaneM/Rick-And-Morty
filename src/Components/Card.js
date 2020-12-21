@@ -15,7 +15,7 @@ export default function Card(props) {
                 <p className="card-text" >Species: {props.species}</p>
                 <p className="card-text" >Status: {props.status}</p>
                 <p className="card-text" >Location: {props.location}</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <a href={props.id} className="btn btn-primary">More information about character</a>
             </div>
         </div>
     );

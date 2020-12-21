@@ -25,7 +25,7 @@ function App() {
                 <Jumbotron></Jumbotron>
                 <div className="container">
                     <div className="row mt-5 justify-content-center">
-                        {character.map(char => {
+                        {character.slice(0,6).map(char => {
                             return <Card
                                 image={char.image}
                                 species={char.species}
