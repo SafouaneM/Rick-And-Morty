@@ -1,36 +1,39 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+
+import axios from "axios";
 import Card from "./Card";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+} from "react-router-dom";
 
-class SingleCharacter extends React.Component {
+export default function SingleCharacter(props) {
+    const url = `https://rickandmortyapi.com/api/character/${props.id}`;
 
+    const [char, setCharacter] = useState(null)
 
-    componentDidMount() {
-        const { match: { params } } = this.props;
-        axios.get(`https://rickandmortyapi.com/api/character/characters/${this.props.params.characterId}`)
-            .then(({ data: character }) => {
-                this.setState({ character });
-            });
-    }
+    useEffect(() => {
+        axios.get(url).then(response => {
+            setCharacter(response.data.results)
+        })
+    },[url])
 
-
-    render() {
-        const { char } = this.state;
-
-        return (
-
-
-    <Card
-        image={char.image}
-        species={char.species}
-        status={char.status}
-        location={char.location.name}
-        name={char.name}
-        id={char.id}/>
+    return (
 
 
-        );
-    }
+        <Card
+            image={char.id}
+            species={char.species}
+            status={char.status}
+            location={char.location.name}
+            name={char.name}
+            />
+    );
 }
 
-export default SingleCharacter;
+
+
+

@@ -40,8 +40,7 @@ export default function Navbar() {
             <Switch>
                 <Route path='/characters'  component={Characterlist} />
                 <Route path='/locations' component={Locations}  />
-                <Route path="/characters/:characterId" component={SingleCharacter} />
-
+                <Route path='/characterinfo/:id' component={SingleCharacter}  />
             </Switch>
         </div>
     </Router>
