@@ -1,5 +1,6 @@
 import React from 'react';
 import './Card.css'
+import { Link } from "react-router-dom";
 
 
 export default function Card(props) {
@@ -15,7 +16,9 @@ export default function Card(props) {
                 <p className="card-text" >Species: {props.species}</p>
                 <p className="card-text" >Status: {props.status}</p>
                 <p className="card-text" >Location: {props.location}</p>
-                <a href={props.id} className="btn btn-primary">More information about character</a>
+                <Link to={`/characters/${props.id} `} key={props.id}>
+                    <button className="btn btn-primary">Click here for more information about this character</button>
+                </Link>
             </div>
         </div>
     );
