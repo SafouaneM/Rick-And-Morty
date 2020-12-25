@@ -10,7 +10,7 @@ class NavBar extends Component {
                  style={{
                      backgroundColor: '#28a523'
                  }}>
-                <a className="navbar-brand col-sm-1 col-md-2 mr-0 allign-items-center" href="#">PickleRick</a>
+                <a className="navbar-brand mr-0 allign-items-center" href="#">PickleRick</a>
                 <ul className="navbar-nav">
 
                     <li className="nav-item active">
