@@ -40,7 +40,7 @@ state={
                             />
                         ))}
                         </div>
-                    </div>) : (<h1>Loading Characters</h1>) }
+                    </div>) : (<h1 style={{color: `#fafafa`}}>Loading Characters</h1>) }
                             {/*if null return this ^*/}
             </React.Fragment>
         );
