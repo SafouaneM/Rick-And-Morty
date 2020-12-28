@@ -8,10 +8,9 @@ export class Jumbotron extends React.Component {
 
         return (
             <section className="jumbotron text-center">
-                    <h1 className="jumbotron-heading">Album example</h1>
-                    <p className="lead text-muted">Something short and leading about the collection below—its contents,
-                        the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it
-                        entirely.</p>
+                    <h1 className="jumbotron-heading">Our home page</h1>
+                    <p className="lead text-muted">Our app is about telling you some information, about the popular series rick and morty
+                        we retrieve this information by using the public Rick and Morty API.</p>
                     <p>
                         <a href="#" className="btn btn-primary my-2">Main call to action</a>
                     </p>
