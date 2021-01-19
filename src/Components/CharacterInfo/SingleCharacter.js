@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
-
+import {Link} from "react-router-dom";
 class SingleCharacter extends Component {
 
     state = {
@@ -49,7 +49,9 @@ class SingleCharacter extends Component {
             <div>
                 <div className="col">
                         <div className="card">
-
+                        <p className="nav-item active">
+                        <Link to={'/'} className="nav-link">Back</Link>
+                        </p>
                             <div className="card-body">
                                 <div className="col-md-3 mx-auto">
                                 <img className="card-img-top mx-auto" src={this.state.image} alt=""/>
