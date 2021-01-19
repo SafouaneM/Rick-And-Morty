@@ -15,7 +15,7 @@ state={
 
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
         // whilst other things are working.
-        const res = await axios.get(this.state.url) //request gives me response. await wait till its loaded then show pokemon
+        const res = await axios.get(this.state.url) //request gives me response. await wait till its loaded then show characters
         this.setState({character: res.data['results']}) //will re run render function
     }
 
@@ -27,7 +27,7 @@ state={
                 {this.state.character ? (
                     <div className="container">
                         <div className="row mt-5 justify-content-center">
-                        {this.state.character.slice(0,6).map(character =>( //this.state.pokemon ? () : () == if state is existing pass left and if it doesnt right
+                        {this.state.character.slice(0,6).map(character =>( //this.state.character ? () : () == if state is existing pass left and if it doesnt right
                             <Card
                                 name={character.name}
                                 id={character.id}
