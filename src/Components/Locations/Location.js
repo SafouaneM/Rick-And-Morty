@@ -1,7 +1,7 @@
 import logo from '../../logo.svg';
 import React, {useState, useEffect} from 'react';
 import '../../App.css';
-import Card from "./LocationCard2";
+import Card from "./Card";
 import {Jumbotron} from "../Jumbotron";
 
 
@@ -24,7 +24,7 @@ function Location()  {
                 <div className="container">
                     <div className="row mt-5 justify-content-center">
                         {location.map(loc => {
-                            if (loc.id === 1) {
+                            if (loc.id === 2) {
                                 return <Card
                                     id={loc.id}
                                     name={loc.name}
