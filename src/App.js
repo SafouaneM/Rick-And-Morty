@@ -5,7 +5,7 @@ import NavBar from "./Components/layout/NavBar";
 import Dashboard from "./Components/layout/Dashboard";
 import backgroundimage  from './portalPattern.jpg'
 import SingleCharacter from "./Components/CharacterInfo/SingleCharacter";
-import Episodelist from "./Components/Episodes/Episodelist";
+import EpisodelistofChar from "./Components/Episodes/EpisodelistofChar";
 import {HashRouter as Router, Route, Switch } from "react-router-dom";
 import Locations from "./Components/Locations/Locations";
 
@@ -21,7 +21,7 @@ class App extends Component {
                             <Route exact path="/" component={Dashboard}/>
                             <Route exact path="/locations" component={Locations}/>
                             <Route exact path="/character/:id" component={SingleCharacter}/>
-                            <Route exact path="/characterepisodes/:id" component={Episodelist}/>
+                            <Route exact path="/episodeslist/:id" component={EpisodelistofChar}/>
                             <Dashboard />
                         </Switch>
                     </div>

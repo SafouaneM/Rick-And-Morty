@@ -16,6 +16,7 @@ state={
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
         // whilst other things are working.
         const res = await axios.get(this.state.url) //request gives me response. await wait till its loaded then show pokemon
+        console.log(res)
         this.setState({character: res.data['results']}) //will re run render function
     }
 

@@ -18,7 +18,7 @@ class SingleCharacter extends Component {
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
         // whilst other things are working.
         const {id} = this.props.match.params
-
+        
         const characterUrl = `https://rickandmortyapi.com/api/character/${id}/`
 
         const charResult = await axios.get(characterUrl);
@@ -30,17 +30,17 @@ class SingleCharacter extends Component {
         const location = charResult.data.location.name
         const origin = charResult.data.origin.name
         const episodes = charResult.data.episode
-        const episodeids = []
-        
+        const episodeidsarr = []
+
         episodes.forEach(element => {
-             console.log(element + " elementbeforeslice");
-             var result = element.slice(-1);
-             console.log(result + " elementafterslice");
-            
-             episodeids.push(result)
-            
+             var result = (element.substring(element.lastIndexOf('/') + 1));
+             episodeidsarr.push(result) 
          });
-         console.log(episodeids[3] + " aaa");
+
+        const episodeids = episodeidsarr.join();
+        const queryurl = ("/episodeslist/"+ episodeids) //finalized url
+        // console.log(queryurl);
+
         this.setState({
             name: name,
             status: status,
@@ -50,7 +50,7 @@ class SingleCharacter extends Component {
             location: location,
             origin: origin,
             id: id,
-            episode: episodes
+            episodes: queryurl
         });
     }
 
@@ -75,7 +75,7 @@ class SingleCharacter extends Component {
 
                             </div>
                         <p className="nav-item active">
-                        <Link to={`/characterepisodes/${this.state.episodes}`} className="nav-link">Episodes this character is in</Link>
+                        <Link to={`${this.state.episodes}`} className="nav-link">Episodes this character is in</Link>
                         </p>
                         </div>
                 </div>

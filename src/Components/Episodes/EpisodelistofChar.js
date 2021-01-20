@@ -9,15 +9,28 @@ import {render} from "@testing-library/react";
 export default class Episodelist extends Component{
 
 state={
-
-    url: 'https://rickandmortyapi.com/api/episode/',
+    // id: 1,
+    // url: ('https://rickandmortyapi.com/api/episode/'+ id),
+    //  id: this.props.match.params,
+    // url: `https://rickandmortyapi.com/api/episode/`,
     episode: null
 }
 
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
         // whilst other things are working.
-        const res = await axios.get(this.state.url) //request gives me response. await wait till its loaded then show pokemon
+        // var episode;
+        const {id} = this.props.match.params
+        // this.setState(id)
+        const url = `https://rickandmortyapi.com/api/episode/${id}`;
+        this.setState(url [url])
+        console.log('stateurl '+ this.state.url)
+        console.log('url '+ url)
+        // const characterUrl = `https://rickandmortyapi.com/api/character/${id}/`
+        const res = await axios.get(url) //request gives me response. await wait till its loaded then show pokemon
+        console.log(res)
         this.setState({episode: res.data['results']}) //will re run render function
+        // console.log(episode + "episode")
+        console.log(id)
     }
 
     render() {
@@ -35,13 +48,13 @@ state={
                                 key={episode.id}
                                 image={episode.image}
                                 air_date={episode.air_date}
-                                episode={episode.episode}
-
+                                episodee={episode.episode}
+                            
                             />
                         ))}
                         </div>
                     </div>) : (<h1 style={{color: `#fafafa`}}>Loading Episodes</h1>) }
-                            {/*if null return this ^*/}
+                            {/*if null return this ^*/ console.log("oof")}
             </React.Fragment>
         );
     }
