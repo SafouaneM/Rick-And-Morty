@@ -9,6 +9,8 @@ export default class Characterlist extends Component {
   state = {
     url: 'https://rickandmortyapi.com/api/character/',
     character: null,
+    // added search in the state and set it by default as a empty string.
+    // so that when you load the page you get all the card without needing to search first
     search: '',
   };
 
