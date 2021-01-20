@@ -29,8 +29,18 @@ class SingleCharacter extends Component {
         const image = charResult.data.image
         const location = charResult.data.location.name
         const origin = charResult.data.origin.name
-
-
+        const episodes = charResult.data.episode
+        const episodeids = Array
+        
+        episodes.forEach(element => {
+             console.log(element + " elementbeforeslice");
+             var result = element.slice(-1);
+             console.log(result + " elementafterslice");
+            
+             episodeids.concat(result)
+            
+         });
+         console.log(episodeids[1] + " aaa");
         this.setState({
             name: name,
             status: status,
@@ -39,8 +49,8 @@ class SingleCharacter extends Component {
             image: image,
             location: location,
             origin: origin,
-            id: id
-
+            id: id,
+            episode: episodes
         });
     }
 
@@ -64,7 +74,9 @@ class SingleCharacter extends Component {
                                 <p className="card-text" >Gender: {this.state.gender}</p>
 
                             </div>
-
+                        <p className="nav-item active">
+                        <Link to={`/characterepisodes/${this.state.episodes}`} className="nav-link">Episodes this character is in</Link>
+                        </p>
                         </div>
                 </div>
             </div>
