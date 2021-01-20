@@ -50,7 +50,6 @@ state = {
                 dimension: dimension,
                 residents: residents,
                 id: id
-
             });
     }
 
@@ -66,7 +65,6 @@ state = {
                 <p className="card-text" >Type: {this.state.type}</p>
                 <p className="card-text" >Dimension: {this.state.dimension}</p>
                 <p className="card-text" >Residents: {this.state.residents}</p>
-
 
         </div>
         </Cards>

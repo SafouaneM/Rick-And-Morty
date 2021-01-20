@@ -7,7 +7,7 @@ import {Jumbotron} from "../Jumbotron";
 
 import axios from 'axios';
 
-function Location()  {
+function Location(id)  {
     const url = 'https://rickandmortyapi.com/api/location';
     const [location, setLocation] = useState(null)
 
@@ -24,7 +24,7 @@ function Location()  {
                 <div className="container">
                     <div className="row mt-5 justify-content-center">
                         {location.map(loc => {
-                            if (loc.id === 2) {
+                            if (loc.id === 3) {
                                 return <Card
                                     id={loc.id}
                                     name={loc.name}
@@ -54,4 +54,5 @@ function Location()  {
         </div>
     );
 }
+
 export default Location;
