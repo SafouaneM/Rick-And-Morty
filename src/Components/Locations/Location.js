@@ -1,7 +1,7 @@
 import logo from '../../logo.svg';
 import React, {useState, useEffect} from 'react';
 import '../../App.css';
-import Card from "./Card";
+import LocCard from "./LocCard";
 import {Jumbotron} from "../Jumbotron";
 
 
@@ -25,7 +25,7 @@ function Location(id)  {
                     <div className="row mt-5 justify-content-center">
                         {location.map(loc => {
                             if (loc.id === 3) {
-                                return <Card
+                                return <LocCard
                                     id={loc.id}
                                     name={loc.name}
                                     type={loc.type}
@@ -46,9 +46,9 @@ function Location(id)  {
             <div className="container">
                 <div className="row mt-5 justify-content-center">
 
-                    <Card>
+                    <LocCard>
 
-                    </Card>
+                    </LocCard>
                 </div>
             </div>
         </div>

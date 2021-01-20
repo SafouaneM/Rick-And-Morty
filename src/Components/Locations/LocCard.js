@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Card.css'
+import './LocCard.css'
 import {Link} from "react-router-dom";
 import styled from 'styled-components'
 
@@ -30,7 +30,7 @@ user-select: none;
 
 `;
 
-class Card extends Component{
+class LocCard extends Component{
 
 state = {
     name: '',
@@ -75,4 +75,4 @@ state = {
 
 }
 
-export default Card;
+export default LocCard;
