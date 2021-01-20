@@ -30,17 +30,17 @@ class SingleCharacter extends Component {
         const location = charResult.data.location.name
         const origin = charResult.data.origin.name
         const episodes = charResult.data.episode
-        const episodeids = Array
+        const episodeids = []
         
         episodes.forEach(element => {
              console.log(element + " elementbeforeslice");
              var result = element.slice(-1);
              console.log(result + " elementafterslice");
             
-             episodeids.concat(result)
+             episodeids.push(result)
             
          });
-         console.log(episodeids[1] + " aaa");
+         console.log(episodeids[3] + " aaa");
         this.setState({
             name: name,
             status: status,
