@@ -48,10 +48,11 @@ class SingleCharacter extends Component {
         return (
             <div>
                 <div className="col">
+
                         <div className="card">
-                        <p className="nav-item active">
-                        <Link to={'/'} className="nav-link">Back</Link>
-                        </p>
+                            <button className="btn btn-dark  btn-sm">
+                                <Link to={'/'} className="nav-link">Back</Link>
+                            </button>
                             <div className="card-body">
                                 <div className="col-md-3 mx-auto">
                                 <img className="card-img-top mx-auto" src={this.state.image} alt=""/>

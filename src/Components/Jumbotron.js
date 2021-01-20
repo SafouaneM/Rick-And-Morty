@@ -11,9 +11,7 @@ export class Jumbotron extends React.Component {
                     <h1 className="jumbotron-heading">Our home page</h1>
                     <p className="lead text-muted">Our app is about telling you some information, about the popular series rick and morty
                         we retrieve this information by using the public Rick and Morty API.</p>
-                    <p>
-                        <a href="#" className="btn btn-primary my-2">Main call to action</a>
-                    </p>
+
                             </section>
 
         );
