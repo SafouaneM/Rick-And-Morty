@@ -60,7 +60,7 @@ state = {
 
     return (
         <div className="col-md-4 col-sm-6 mb-5">
-            <StyledLink to={`episode/${this.state.id}`}>
+            
             <Cards className="card">
             <div className="card-body">
                 <img className="card-img-top" src={this.state.image} alt=""/>
@@ -73,7 +73,7 @@ state = {
 
         </div>
         </Cards>
-            </StyledLink>
+           
         </div>
     );
  }
