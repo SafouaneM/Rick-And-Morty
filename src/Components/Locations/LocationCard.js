@@ -15,8 +15,7 @@ export default function LocationCard(props) {
                 <h5 className="card-title" >Name: {props.name}</h5>
                 <p className="card-text" >Type: {props.type}</p>
                 <p className="card-text" >Dimension: {props.dimension}</p>
-                <Link to={`/location/${props.id}`} className={"btn btn-primary"}>Location</Link>
-                <a href={props.residents} className="btn btn-primary">Residents of this dimension </a>
+                <Link to={`/location/${props.id}`} className={"btn btn-primary"}>More information/residents</Link>
             </div>
         </div>
     );

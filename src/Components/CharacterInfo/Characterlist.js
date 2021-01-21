@@ -71,18 +71,7 @@ state={
                     </div> ) : (<h1 style={{color: `#fafafa`}}>Loading Characters</h1>) }
                             {/*if null return this ^*/}
 
-                <ReactPaginate
-                    previousLabel={"prev"}
-                    nextLabel={"next"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={this.state.pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={this.handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
+
             </React.Fragment>
         );
     }
