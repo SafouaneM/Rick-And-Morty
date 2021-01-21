@@ -18,7 +18,7 @@ class SingleCharacter extends Component {
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
         // whilst other things are working.
         const {id} = this.props.match.params
-
+        
         const characterUrl = `https://rickandmortyapi.com/api/character/${id}/`
 
         const charResult = await axios.get(characterUrl);
@@ -29,7 +29,17 @@ class SingleCharacter extends Component {
         const image = charResult.data.image
         const location = charResult.data.location.name
         const origin = charResult.data.origin.name
+        const episodes = charResult.data.episode
+        const episodeidsarr = []
 
+        episodes.forEach(element => {
+             var result = (element.substring(element.lastIndexOf('/') + 1));
+             episodeidsarr.push(result) 
+         });
+
+        const episodeids = episodeidsarr.join();
+        const queryurl = ("/episodeslist/"+ episodeids) //finalized url
+        // console.log(queryurl);
 
         this.setState({
             name: name,
@@ -39,8 +49,8 @@ class SingleCharacter extends Component {
             image: image,
             location: location,
             origin: origin,
-            id: id
-
+            id: id,
+            episodes: queryurl
         });
     }
 
@@ -65,7 +75,9 @@ class SingleCharacter extends Component {
                                 <p className="card-text" >Gender: {this.state.gender}</p>
 
                             </div>
-
+                        <p className="nav-item active">
+                        <Link to={`${this.state.episodes}`} className="nav-link">Episodes this character is in</Link>
+                        </p>
                         </div>
                 </div>
             </div>
