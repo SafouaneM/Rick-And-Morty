@@ -11,15 +11,20 @@ import {render} from "@testing-library/react";
 export default class Characterlist extends Component{
 
 state={
-    url: `https://rickandmortyapi.com/api/character/?page=?`,
-    character: [],
+        url: 'https://rickandmortyapi.com/api/character/',
+        character: null,
+        startSplice: 0,
+        endSplice: 6,
     // added search in the state and set it by default as a empty string.
     // so that when you load the page you get all the card without needing to search first
     searchCharacters: '',
-    perPage: 10,
-    currentPage: 1,
 }
-
+    next = () => {
+        this.setState({startSplice: this.state.startSplice + 6, endSplice: this.state.endSplice + 6})
+    }
+    back = () => {
+        this.setState({startSplice: this.state.startSplice - 6, endSplice: this.state.endSplice - 6})
+    }
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
         // whilst other things are working.
         const res = await axios.get(this.state.url) //request gives me response. await wait till its loaded then show characters
@@ -52,7 +57,7 @@ state={
                         </div>
                         <div className="row mt-5 justify-content-center">
                         {this.state.character
-
+                            .slice(this.state.startSplice,this.state.endSplice)
                             .filter(character =>
                                 character.name.toLowerCase().includes(this.state.searchCharacters.toLowerCase()))//with this we can look up characters both with lower case and upper case
                             .map(character =>( //this.state.character ? () : () == if state is existing pass left and if it doesnt right
@@ -70,7 +75,8 @@ state={
                         </div>
                     </div> ) : (<h1 style={{color: `#fafafa`}}>Loading Characters</h1>) }
                             {/*if null return this ^*/}
-
+                <a href="#" onClick={this.back} className="btn btn-dark btn-lg mx-4 my-4">Back</a>
+                <a href="#" onClick={this.next} className="btn btn-success btn-lg">Next</a>
 
             </React.Fragment>
         );

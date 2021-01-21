@@ -50,6 +50,7 @@ export default class Locations extends Component{
                         </div>
                     </div> ) : (<h1 style={{color: `#fafafa`}}>Loading Locations</h1>) }
                 {/*if null return this ^*/}
+                
             </React.Fragment>
         );
     }
