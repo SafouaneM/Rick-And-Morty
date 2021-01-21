@@ -28,7 +28,7 @@ function Locations() {
                     <div className="row mt-5 justify-content-center">
                         {location.map(loc => {
                             return <Card
-
+                                id={loc.id}
                                 name={loc.name}
                                 type={loc.type}
                                 dimension={loc.dimension}

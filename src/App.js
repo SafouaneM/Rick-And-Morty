@@ -9,6 +9,9 @@ import EpisodelistofChar from "./Components/Episodes/EpisodelistofChar";
 import {HashRouter as Router, Route, Switch } from "react-router-dom";
 import Locations from "./Components/Locations/Locations";
 import Characterlist from "./Components/CharacterInfo/Characterlist";
+import Characterlist from "./Components/CharacterInfo/Characterlist";
+import SingleLocation from "./Components/Locations/SingleLocation";
+import ResidentslistofLoc from "./Components/Locations/ResidentslistofLoc";
 
 class App extends Component {
 
@@ -24,6 +27,12 @@ class App extends Component {
                             <Route exact path="/character/:id" component={SingleCharacter}/>
                             <Route exact path="/page/:pageNumber" component={Characterlist}/>
                             <Route exact path="/episodeslist/:id" component={EpisodelistofChar}/>
+                            <Route exact path="/page/:pageNumber" component={Characterlist}/>
+                            <Route exact path="/episodeslist/:id" component={EpisodelistofChar}/>
+                            <Route exact path="/resident/character/:id" component={SingleCharacter}/>
+                            <Route exact path="/resident/:id" component={ResidentslistofLoc}/>
+                            <Route exact path="/resident" component={ResidentslistofLoc}/>
+                            <Route exact path="/location/:id" component={SingleLocation}/>
                             <Dashboard />
                         </Switch>
                     </div>
