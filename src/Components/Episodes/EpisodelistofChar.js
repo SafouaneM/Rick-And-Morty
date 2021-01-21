@@ -21,15 +21,8 @@ state={
         var episode;
         const {id} = this.props.match.params
         const url = `https://rickandmortyapi.com/api/episode/${id}`;
-        // this.setState(url [url])
-        console.log('stateurl '+ this.state.url)
-        console.log('url '+ url)
         const res = await axios.get(url) //request gives me response. await wait till its loaded then show pokemon
-        console.log(res)
-        console.log( res.data)
         this.setState({episode: res.data}) //will re run render function
-        
-        console.log(id)
     }
 
     render() {
@@ -53,7 +46,7 @@ state={
                         ))}
                         </div>
                     </div>) : (<h1 style={{color: `#fafafa`}}>Loading Episodes</h1>) }
-                            {/*if null return this ^*/ console.log("oof")}
+                            {/*if null return this ^*/}
             </React.Fragment>
         );
     }
