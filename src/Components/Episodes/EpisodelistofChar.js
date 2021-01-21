@@ -20,7 +20,7 @@ state={
         // whilst other things are working.
         var episode;
         const {id} = this.props.match.params
-        const url = `https://rickandmortyapi.com/api/episode/${id}`;
+        const url = `https://rickandmortyapi.com/api/episode/0,${id}`;
         const res = await axios.get(url) //request gives me response. await wait till its loaded then show pokemon
         this.setState({episode: res.data}) //will re run render function
     }
