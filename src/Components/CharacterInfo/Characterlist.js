@@ -3,17 +3,21 @@ import '../../App.css';
 import Card from "./Card";
 import {Jumbotron} from "../Jumbotron";
 import axios from 'axios';
+import ReactPaginate from 'react-paginate'
+
 import {render} from "@testing-library/react";
 
 
 export default class Characterlist extends Component{
 
 state={
-    url: 'https://rickandmortyapi.com/api/character/',
-    character: null,
+    url: `https://rickandmortyapi.com/api/character/?page=?`,
+    character: [],
     // added search in the state and set it by default as a empty string.
     // so that when you load the page you get all the card without needing to search first
     searchCharacters: '',
+    currentPage: 1,
+    totalPages: 0,
 }
 
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
@@ -28,6 +32,10 @@ state={
     searchCharacters = event => {
         this.setState({ searchCharacters: event.target.value })
     }
+
+    handlePageClick = (character) => {
+        let selected = character.selected;
+        let offset = Math.ceil(selected * this.props.perPage) }
 
 
 
@@ -64,6 +72,20 @@ state={
                         </div>
                     </div> ) : (<h1 style={{color: `#fafafa`}}>Loading Characters</h1>) }
                             {/*if null return this ^*/}
+
+                <ReactPaginate
+                    previousLabel={'previous'}
+                    nextLabel={'next'}
+                    breakLabel={'...'}
+                    breakClassName={'break-me'}
+                    pageCount={this.state.pageCount}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={'pagination'}
+                    subContainerClassName={'pages pagination'}
+                    activeClassName={'active'}
+                />
             </React.Fragment>
         );
     }
