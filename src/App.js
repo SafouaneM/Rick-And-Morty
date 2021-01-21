@@ -22,7 +22,9 @@ class App extends Component {
                             <Route exact path="/" component={Dashboard}/>
                             <Route exact path="/locations" component={Locations}/>
                             <Route exact path="/character/:id" component={SingleCharacter}/>
+                            <Route exact path="/resident/character/:id" component={SingleCharacter}/>
                             <Route exact path="/resident/:id" component={ResidentslistofLoc}/>
+                            <Route exact path="/resident" component={ResidentslistofLoc}/>
                             <Route exact path="/location/:id" component={SingleLocation}/>
                             <Dashboard />
                         </Switch>

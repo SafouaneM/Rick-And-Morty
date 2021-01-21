@@ -31,7 +31,7 @@ class SingleLocation extends Component {
         });
 
         const residentids = residentidsarr.join();
-        const queryurl = ("/resident/"+ residentids)
+        const queryurl = ("/resident/0,"+ residentids)
 
 
         this.setState({

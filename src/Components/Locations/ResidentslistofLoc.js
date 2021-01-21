@@ -1,47 +1,45 @@
 import React, {Component} from 'react';
 import '../../App.css';
 import Card from "../CharacterInfo/Card";
-import {Jumbotron} from "../Jumbotron";
 import axios from 'axios';
-import {render} from "@testing-library/react";
 
 
 export default class Residentlist extends Component{
 
 state={
-    resident: null
+    character: null
 }
 
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
         // whilst other things are working.
         var resident;
         const {id} = this.props.match.params
-        const url = `https://rickandmortyapi.com/api/resident/${id}`;
+        const url = `https://rickandmortyapi.com/api/character/${id}`;
         const res = await axios.get(url) //request gives me response. await wait till its loaded then show pokemon
-        this.setState({resident: res.data}) //will re run render function
+        this.setState({character: res.data}) //will re run render function
     }
 
     render() {
         return (
 //sort of like a div but gets removed when it gets rendered so we dont have to make unnessecary divs
             <React.Fragment>
-                {this.state.resident ? (
+                {this.state.character ? (
                     <div className="container">
                         <div className="row mt-5 justify-content-center">
-                        {this.state.resident.slice(0,6).map(resident =>(
+                        {this.state.character.map(character =>(
                             <Card
-                                name={resident.name}
-                                id={resident.id}
-                                key={resident.id}
-                                image={resident.image}
-                                status={resident.status}
-                                species={resident.species}
-                                gender={resident.gender}
-                            
+                                name={character.name}
+                                id={character.id}
+                                key={character.id}
+                                image={character.image}
+                                status={character.status}
+                                species={character.species}
+                                gender={character.gender}
+
                             />
                         ))}
                         </div>
-                    </div>) : (<h1 style={{color: `#fafafa`}}>Geen Residents</h1>) }
+                    </div>) : (<h1 style={{color: `#FF0000`}}>Geen Residents</h1>) }
                             {/*if null return this ^*/}
             </React.Fragment>
         );
