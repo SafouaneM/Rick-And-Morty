@@ -16,8 +16,8 @@ state={
     // added search in the state and set it by default as a empty string.
     // so that when you load the page you get all the card without needing to search first
     searchCharacters: '',
+    perPage: 10,
     currentPage: 1,
-    totalPages: 0,
 }
 
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
@@ -33,9 +33,7 @@ state={
         this.setState({ searchCharacters: event.target.value })
     }
 
-    handlePageClick = (character) => {
-        let selected = character.selected;
-        let offset = Math.ceil(selected * this.props.perPage) }
+
 
 
 
@@ -54,7 +52,7 @@ state={
                         </div>
                         <div className="row mt-5 justify-content-center">
                         {this.state.character
-                            .slice(0,6)
+
                             .filter(character =>
                                 character.name.toLowerCase().includes(this.state.searchCharacters.toLowerCase()))//with this we can look up characters both with lower case and upper case
                             .map(character =>( //this.state.character ? () : () == if state is existing pass left and if it doesnt right
@@ -74,18 +72,17 @@ state={
                             {/*if null return this ^*/}
 
                 <ReactPaginate
-                    previousLabel={'previous'}
-                    nextLabel={'next'}
-                    breakLabel={'...'}
-                    breakClassName={'break-me'}
+                    previousLabel={"prev"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
                     pageCount={this.state.pageCount}
                     marginPagesDisplayed={2}
                     pageRangeDisplayed={5}
                     onPageChange={this.handlePageClick}
-                    containerClassName={'pagination'}
-                    subContainerClassName={'pages pagination'}
-                    activeClassName={'active'}
-                />
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
             </React.Fragment>
         );
     }

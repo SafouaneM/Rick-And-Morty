@@ -9,7 +9,6 @@ import EpisodelistofChar from "./Components/Episodes/EpisodelistofChar";
 import {HashRouter as Router, Route, Switch } from "react-router-dom";
 import Locations from "./Components/Locations/Locations";
 import Characterlist from "./Components/CharacterInfo/Characterlist";
-import Characterlist from "./Components/CharacterInfo/Characterlist";
 import SingleLocation from "./Components/Locations/SingleLocation";
 import ResidentslistofLoc from "./Components/Locations/ResidentslistofLoc";
 
