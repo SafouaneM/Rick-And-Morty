@@ -7,7 +7,8 @@ import backgroundimage  from './portalPattern.jpg'
 import SingleCharacter from "./Components/CharacterInfo/SingleCharacter";
 import {HashRouter as Router, Route, Switch } from "react-router-dom";
 import Locations from "./Components/Locations/Locations";
-import Location from "./Components/Locations/Location";
+import SingleLocation from "./Components/Locations/SingleLocation";
+import ResidentslistofLoc from "./Components/Locations/ResidentslistofLoc";
 
 class App extends Component {
 
@@ -21,7 +22,8 @@ class App extends Component {
                             <Route exact path="/" component={Dashboard}/>
                             <Route exact path="/locations" component={Locations}/>
                             <Route exact path="/character/:id" component={SingleCharacter}/>
-                            <Route exact path="/location/:id" component={Location}/>
+                            <Route exact path="/resident/:id" component={ResidentslistofLoc}/>
+                            <Route exact path="/location/:id" component={SingleLocation}/>
                             <Dashboard />
                         </Switch>
                     </div>

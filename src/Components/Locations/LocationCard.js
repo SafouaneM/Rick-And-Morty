@@ -1,7 +1,7 @@
 import React from 'react';
 import '../CharacterInfo/Card.css'
 import {Link} from "react-router-dom";
-import Location from "./Location";
+import SingleLocation from "./SingleLocation";
 
 
 
