@@ -39,7 +39,7 @@ state={
                             />
                         ))}
                         </div>
-                    </div>) : (<h1 style={{color: `#FF0000`}}>Geen Residents</h1>) }
+                    </div>) : (<h1 style={{color: `#FF0000`}}>Loading residents (if you see this message more then 30 seconds there are no residents in this planet)</h1>) }
                             {/*if null return this ^*/}
             </React.Fragment>
         );

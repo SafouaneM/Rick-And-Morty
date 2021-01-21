@@ -1,62 +1,56 @@
 import logo from '../../logo.svg';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import '../../App.css';
 import Card from "./LocationCard";
 import {Jumbotron} from "../Jumbotron";
+import LocationCard from "./LocationCard";
 
 
 import axios from 'axios';
+import ReactPaginate from "react-paginate";
+
+export default class Locations extends Component{
 
 
-function Locations() {
-    const url = 'https://rickandmortyapi.com/api/location';
-    const [location, setLocation] = useState(null)
+    state={
+        url: `https://rickandmortyapi.com/api/location/`,
+        location: [],
+    }
 
-    useEffect(() => {
-        axios.get(url).then(response => {
-            setLocation(response.data.results)
-        })
-    },[url])
+    async componentDidMount() { //make async function, what does it do? : this will run in the background,
+        // whilst other things are working.
+        const res = await axios.get(this.state.url) //request gives me response. await wait till its loaded then show locations
+        this.setState({location: res.data['results']}) //will re run render function
 
-    if(location) {
+    }
+
+    render() {
         return (
-
-            <div className="main">
+//sort of like a div but gets removed when it gets rendered so we dont have to make unecasrry divs
+            <React.Fragment>
                 <Jumbotron></Jumbotron>
+                {this.state.location ? (
+                    <div className="container">
 
-                <div className="container">
-                    <div className="row mt-5 justify-content-center">
-                        {location.map(loc => {
-                            return <Card
-                                id={loc.id}
-                                name={loc.name}
-                                type={loc.type}
-                                dimension={loc.dimension}
-                                residents={loc.residents}/>;
-                        })}
-                    </div>
+                        <div className="row mt-5 justify-content-center">
+                            {this.state.location
 
+                                //with this we can look up locations both with lower case and upper case
+                                .map(location =>( //this.state.location ? () : () == if state is existing pass left and if it doesnt right
+                                    <LocationCard
+                                        name={location.name}
+                                        id={location.id}
+                                        key={location.id}
+                                        type={location.type}
+                                        dimension={location.dimension}
+                                        residents={location.residents}
 
-
-                </div>
-            </div>
+                                    />
+                                ))}
+                        </div>
+                    </div> ) : (<h1 style={{color: `#fafafa`}}>Loading Locations</h1>) }
+                {/*if null return this ^*/}
+            </React.Fragment>
         );
     }
-    return (
-        <div className="main">
-            <Jumbotron></Jumbotron>
-            <div className="container">
-                <div className="row mt-5 justify-content-center">
-
-                    <Card>
-
-                    </Card>
-                </div>
-            </div>
-        </div>
-    );
-
 }
-
-
-export default Locations;
