@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import NavBar from "./Components/layout/NavBar";
 import Dashboard from "./Components/layout/Dashboard";
-import backgroundimage  from './portalPattern.jpg'
 import SingleCharacter from "./Components/CharacterInfo/SingleCharacter";
 import {HashRouter as Router, Route, Switch } from "react-router-dom";
 import Locations from "./Components/Locations/Locations";
