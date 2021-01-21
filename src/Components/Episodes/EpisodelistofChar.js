@@ -18,18 +18,17 @@ state={
 
     async componentDidMount() { //make async function, what does it do? : this will run in the background,
         // whilst other things are working.
-        // var episode;
+        var episode;
         const {id} = this.props.match.params
-        // this.setState(id)
         const url = `https://rickandmortyapi.com/api/episode/${id}`;
-        this.setState(url [url])
+        // this.setState(url [url])
         console.log('stateurl '+ this.state.url)
         console.log('url '+ url)
-        // const characterUrl = `https://rickandmortyapi.com/api/character/${id}/`
         const res = await axios.get(url) //request gives me response. await wait till its loaded then show pokemon
         console.log(res)
-        this.setState({episode: res.data['results']}) //will re run render function
-        // console.log(episode + "episode")
+        console.log( res.data)
+        this.setState({episode: res.data}) //will re run render function
+        
         console.log(id)
     }
 
