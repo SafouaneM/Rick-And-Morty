@@ -58,7 +58,7 @@ state={
                                 status={character.status}
                                 species={character.species}
                                 gender={character.gender}
-
+                                episodes={character.episodes}
                             />
                         ))}
                         </div>
