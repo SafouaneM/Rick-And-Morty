@@ -52,7 +52,9 @@ export default class Characterlist extends Component {
                 <Jumbotron></Jumbotron>
                 {this.state.character ? (
                     <div className='container'>
+                        <h1><p className='justify-content-center'> <span className='badge badge-primary'>Search for characters here</span></p></h1>
                         <input
+                            className='form-control'
                             type='text'
                             onChange={this.search}
                             value={this.state.search}

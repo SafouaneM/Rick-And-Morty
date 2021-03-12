@@ -8,7 +8,7 @@ export const Pagination = ({ characterPerPage, totalPosts, paginate }) => {
     }
 
     return (
-        <nav>
+        <nav className='pagination-sm'>
             <ul className='pagination'>
                 {pageNumbers.map((number) => (
                     <li key={number} className='page-item'>
